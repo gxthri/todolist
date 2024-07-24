@@ -48,7 +48,7 @@ function addTasks(){
     bb.textContent="Delete";
     d3.appendChild(bb);
     bb.onclick= function(){
-        d1.removeChild(d2);
+        tasks.removeChild(d2);
     }
 
 }
