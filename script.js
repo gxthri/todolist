@@ -1,54 +1,54 @@
 
 function addTasks(){
     const tasks=document.getElementById("tasks");
-    const div=document.getElementById("input") ;
-    const ip=div.value.trim();
-    div.value='';
+    const taskContainer=document.getElementById("input") ;
+    const taskName=taskContainer.value.trim();
+    taskContainer.value='';
 
-    if(ip!==''){
-    const d2= document.createElement("div");
-    d2.setAttribute("id","tasks-child");
-    d2.setAttribute("class","tasks-child");
-    tasks.appendChild(d2);
+    if(taskName!==''){
+    const taskchildContainer= document.createElement("div");
+    taskchildContainer.setAttribute("id","tasks-child");
+    taskchildContainer.setAttribute("class","tasks-child");
+    tasks.appendChild(taskchildContainer);
 
-    const d3=document.createElement("ol");
-    d3.setAttribute("id","child");
-    d3.setAttribute("class","child");
-    d2.appendChild(d3);
+    const taskChild=document.createElement("ol");
+    taskChild.setAttribute("id","child");
+    taskChild.setAttribute("class","child");
+    taskchildContainer.appendChild(taskChild);
 
-    const ip1=document.createElement("button");
-    ip1.setAttribute("id","inputs");
-    ip1.setAttribute("class","inputs");
-    // ip1.textContent=ip;
-    d3.appendChild(ip1);
+    const buttonContainer=document.createElement("button");
+    buttonContainer.setAttribute("id","inputs");
+    buttonContainer.setAttribute("class","inputs");
+    // buttonContainer.textContent=ip;
+    taskChild.appendChild(buttonContainer);
       const ul=document.createElement("ul");
-      ip1.appendChild(ul);
+      buttonContainer.appendChild(ul);
       const li=document.createElement("li");
     //   li.innerHTML= ip;
       ul.appendChild(li);
-      const div2=document.createElement("button");
-      div2.setAttribute("class","div2");
-      div2.textContent=ip;
-      li.appendChild(div2);
+      const buttonChild=document.createElement("button");
+      buttonChild.setAttribute("class","div2");
+      buttonChild.textContent=taskName;
+      li.appendChild(buttonChild);
       let count=1;
-    div2.onclick=function(){
-        if(count==1){
-        div2.style.textDecoration="line-through";
-    count= count+1;}
+    buttonChild.onclick=function(){
+        if(count){
+        buttonChild.style.textDecoration="line-through";
+    count= 0;}
     else{
-        div2.style.textDecoration="none";
-    count= count-1;}
+        buttonChild.style.textDecoration="none";
+    count= 1;}
        
 
     }
 
-    const bb=document.createElement("button");
-    bb.setAttribute("id","remove");
-    bb.setAttribute("class","remove");
-    bb.textContent="Delete";
-    d3.appendChild(bb);
-    bb.onclick= function(){
-        tasks.removeChild(d2);
+    const deleteButton=document.createElement("button");
+    deleteButton.setAttribute("id","remove");
+    deleteButton.setAttribute("class","remove");
+    deleteButton.textContent="Delete";
+    taskChild.appendChild(deleteButton);
+    deleteButton.onclick= function(){
+        tasks.removeChild(taskchildContainer);
     }
 
 }
